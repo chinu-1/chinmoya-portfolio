@@ -38,6 +38,19 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at 20% 30%, rgba(78, 15, 120, 0.05) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(15, 39, 120, 0.08) 0%, transparent 60%);
   }
 
   html {
@@ -71,7 +84,7 @@
   }
   
   .glass-card {
-    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl;
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/8 transition-colors;
   }
   
   .reveal-animation {
@@ -109,16 +122,19 @@
   }
 }
 
+/* Create particles animation for the whole site */
 .particles {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
   z-index: 0;
+  pointer-events: none;
 }
 
 .particle {
   position: absolute;
+  pointer-events: none;
 }

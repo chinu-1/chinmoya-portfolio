@@ -65,13 +65,19 @@ const Hero = () => {
             <a href="#contact">Get in Touch</a>
           </Button>
         </div>
-        
-        {/* Updated arrow with more space */}
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <a href="#about" className="text-muted-foreground hover:text-white transition-colors p-4">
-            <ArrowDown className="h-8 w-8 opacity-70" />
-          </a>
-        </div>
+      </div>
+      
+      {/* Updated arrow with better positioning and styling */}
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+        <a 
+          href="#about" 
+          className="text-white hover:text-purple-300 transition-colors flex flex-col items-center gap-2 p-4 group"
+        >
+          <span className="text-sm font-medium text-muted-foreground group-hover:text-white transition-colors">Discover More</span>
+          <div className="p-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm group-hover:bg-white/10 transition-all">
+            <ArrowDown className="h-5 w-5 animate-bounce opacity-80" />
+          </div>
+        </a>
       </div>
     </section>
   );

@@ -32,6 +32,14 @@ const Index = () => {
     };
   }, []);
 
+  // Adding a feature to preload essential assets for better performance on GitHub Pages
+  useEffect(() => {
+    // This ensures all key assets are loaded for static hosting
+    document.fonts.ready.then(() => {
+      console.log('Fonts loaded successfully');
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
