@@ -27,7 +27,7 @@ const About = () => {
   return (
     <section id="about" ref={sectionRef} className="section-padding bg-background relative">
       <div className="container container-padding">
-        <div className="flex flex-col md:flex-row gap-12 lg:gap-20">
+        <div className="flex flex-col md:flex-row gap-12 lg:gap-16">
           <div className="md:w-1/2">
             <h2 className="section-heading reveal-animation reveal-from-bottom">
               About Me
@@ -46,12 +46,12 @@ const About = () => {
             </div>
           </div>
           
-          <div className="md:w-1/2 space-y-8">
-            <div className="glass-card p-6 h-full reveal-animation reveal-from-bottom" style={{ transitionDelay: '400ms' }}>
+          <div className="md:w-1/2 space-y-6">
+            <div className="glass-card p-6 reveal-animation reveal-from-bottom" style={{ transitionDelay: '400ms' }}>
               <h3 className="text-xl font-display font-semibold mb-6">Education</h3>
               
               <div className="relative pl-6 border-l border-white/10">
-                <div className="mb-8 relative">
+                <div className="mb-6 relative">
                   <div className="absolute w-3 h-3 bg-white rounded-full -left-[25px] top-1"></div>
                   <h4 className="text-lg font-medium">B.Tech, Electronics & Communication Engineering</h4>
                   <p className="text-muted-foreground">Mizoram University</p>
@@ -61,7 +61,7 @@ const About = () => {
                   </p>
                 </div>
                 
-                <div className="mb-8 relative">
+                <div className="mb-4 relative">
                   <div className="absolute w-3 h-3 bg-white rounded-full -left-[25px] top-1"></div>
                   <h4 className="text-lg font-medium">Higher Secondary Education</h4>
                   <p className="text-muted-foreground">CBSE Board</p>
@@ -72,7 +72,7 @@ const About = () => {
                 </div>
               </div>
               
-              <div className="mt-8">
+              <div className="mt-6">
                 <h3 className="text-xl font-display font-semibold mb-4">Location</h3>
                 <p className="text-muted-foreground flex items-center">
                   <svg
@@ -95,11 +95,11 @@ const About = () => {
               </div>
             </div>
             
-            <div className="glass-card p-6 h-full reveal-animation reveal-from-bottom" style={{ transitionDelay: '500ms' }}>
-              <h3 className="text-xl font-display font-semibold mb-6">Experience</h3>
+            <div className="glass-card p-6 reveal-animation reveal-from-bottom" style={{ transitionDelay: '500ms' }}>
+              <h3 className="text-xl font-display font-semibold mb-4">Experience</h3>
               
               <div className="relative pl-6 border-l border-white/10">
-                <div className="mb-8 relative">
+                <div className="relative">
                   <div className="absolute w-3 h-3 bg-white rounded-full -left-[25px] top-1"></div>
                   <h4 className="text-lg font-medium">Yuvamantha Hackathon 2025</h4>
                   <p className="text-muted-foreground">Cybersecurity and Digital Governance</p>
