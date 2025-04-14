@@ -1,7 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import DownloadButton from './DownloadButton';
+import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
