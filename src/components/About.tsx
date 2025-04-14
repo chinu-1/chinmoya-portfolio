@@ -46,7 +46,7 @@ const About = () => {
             </div>
           </div>
           
-          <div className="md:w-1/2">
+          <div className="md:w-1/2 space-y-8">
             <div className="glass-card p-6 h-full reveal-animation reveal-from-bottom" style={{ transitionDelay: '400ms' }}>
               <h3 className="text-xl font-display font-semibold mb-6">Education</h3>
               
@@ -55,13 +55,21 @@ const About = () => {
                   <div className="absolute w-3 h-3 bg-white rounded-full -left-[25px] top-1"></div>
                   <h4 className="text-lg font-medium">B.Tech, Electronics & Communication Engineering</h4>
                   <p className="text-muted-foreground">Mizoram University</p>
-                  <p className="text-sm text-muted-foreground mt-1">2020 - 2024</p>
+                  <p className="text-sm text-muted-foreground mt-1">2023 - Present</p>
                   <p className="mt-2 text-sm text-muted-foreground">
                     Focused on communication systems, digital electronics, signal processing, and embedded systems design.
                   </p>
                 </div>
                 
-                {/* Add more education items here if needed */}
+                <div className="mb-8 relative">
+                  <div className="absolute w-3 h-3 bg-white rounded-full -left-[25px] top-1"></div>
+                  <h4 className="text-lg font-medium">Higher Secondary Education</h4>
+                  <p className="text-muted-foreground">CBSE Board</p>
+                  <p className="text-sm text-muted-foreground mt-1">2020 - 2022</p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Completed higher secondary education with focus on science and mathematics.
+                  </p>
+                </div>
               </div>
               
               <div className="mt-8">
@@ -84,6 +92,22 @@ const About = () => {
                   </svg>
                   Bhubaneswar, India
                 </p>
+              </div>
+            </div>
+            
+            <div className="glass-card p-6 h-full reveal-animation reveal-from-bottom" style={{ transitionDelay: '500ms' }}>
+              <h3 className="text-xl font-display font-semibold mb-6">Experience</h3>
+              
+              <div className="relative pl-6 border-l border-white/10">
+                <div className="mb-8 relative">
+                  <div className="absolute w-3 h-3 bg-white rounded-full -left-[25px] top-1"></div>
+                  <h4 className="text-lg font-medium">Yuvamantha Hackathon 2025</h4>
+                  <p className="text-muted-foreground">Cybersecurity and Digital Governance</p>
+                  <p className="text-sm text-muted-foreground mt-1">March 2025</p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Developed "Digishield - Securing Digital India", a web application firewall aimed at improving cybersecurity for government websites.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

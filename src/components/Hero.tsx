@@ -1,7 +1,9 @@
+
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import DownloadButton from './DownloadButton';
 import { Button } from '@/components/ui/button';
+import { ArrowDown } from 'lucide-react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,22 +14,30 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center pt-20 pb-10 relative overflow-hidden">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-secondary/20 z-0"></div>
-      
-      {/* Animated Dots */}
-      <div className="absolute inset-0 z-0">
-        {[...Array(5)].map((_, i) => (
-          <div 
-            key={i} 
-            className="absolute w-1 h-1 rounded-full bg-white/20 animate-pulse-slow"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${i * 0.7}s`
-            }}
-          ></div>
-        ))}
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-secondary/20 z-0">
+        {/* Animated particles */}
+        <div className="particles">
+          {[...Array(20)].map((_, i) => (
+            <div 
+              key={i} 
+              className="particle absolute rounded-full"
+              style={{
+                width: `${Math.random() * 6 + 1}px`,
+                height: `${Math.random() * 6 + 1}px`,
+                background: `rgba(255, 255, 255, ${Math.random() * 0.3 + 0.1})`,
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animation: `floatParticle ${Math.random() * 10 + 10}s linear infinite`,
+                animationDelay: `${Math.random() * 5}s`
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* Animated gradient orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-purple-500/10 blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-blue-500/10 blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
       </div>
       
       <div 
@@ -56,23 +66,10 @@ const Hero = () => {
           </Button>
         </div>
         
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <a href="#about" className="text-muted-foreground hover:text-white transition-colors">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-6 w-6"
-            >
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <polyline points="19 12 12 19 5 12"></polyline>
-            </svg>
+        {/* Updated arrow with more space */}
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <a href="#about" className="text-muted-foreground hover:text-white transition-colors p-4">
+            <ArrowDown className="h-8 w-8 opacity-70" />
           </a>
         </div>
       </div>
