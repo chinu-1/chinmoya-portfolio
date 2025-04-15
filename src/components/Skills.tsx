@@ -1,23 +1,22 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 
-// Updated skills data for web and android development
+// Updated skills data with the requested changes
 const programmingSkills = [
   { name: 'JavaScript/TypeScript', level: 90 },
   { name: 'HTML/CSS', level: 95 },
   { name: 'React.js', level: 85 },
-  { name: 'Java', level: 80 },
+  { name: 'C++', level: 80 },
   { name: 'Python', level: 75 },
 ];
 
 const softwareSkills = [
   { name: 'VS Code', level: 95 },
-  { name: 'Android Studio', level: 80 },
+  { name: 'Android Studio', level: 40 },
   { name: 'Git/GitHub', level: 85 },
-  { name: 'Figma', level: 75 },
-  { name: 'Docker', level: 70 },
+  { name: 'Flutter', level: 20 },
+  { name: 'Docker', level: 25 },
 ];
 
 const Skills = () => {
@@ -43,9 +42,7 @@ const Skills = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Initialize progress values to 0
   useEffect(() => {
-    // Set animated skills to true after component mounts to trigger animations
     const timer = setTimeout(() => {
       const skills = {};
       [...programmingSkills, ...softwareSkills].forEach(skill => {
@@ -112,7 +109,6 @@ const Skills = () => {
         </div>
         
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 reveal-animation reveal-from-bottom" style={{ transitionDelay: '400ms' }}>
-          {/* Core competencies */}
           <div className="glass-card p-6">
             <h3 className="text-lg font-display font-semibold mb-4">Web Development</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
