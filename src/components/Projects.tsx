@@ -4,13 +4,13 @@ import { cn } from '@/lib/utils';
 import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-// Updated project data
+// Updated project data with a better image
 const projects = [
   {
     title: "Digishield - Securing Digital India",
     description: "A web application firewall aimed at improving the cybersecurity of government websites and making digital governance successful. Features include advanced threat detection, real-time monitoring, and regulatory compliance tools.",
     tags: ["Cybersecurity", "Web Development", "Digital Governance", "React", "Node.js"],
-    image: "https://images.unsplash.com/photo-1562813733-b31f0941db47?auto=format&fit=crop&q=80&w=800&h=500", 
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800&h=500", 
     links: {
       demo: "#",
       github: "#",

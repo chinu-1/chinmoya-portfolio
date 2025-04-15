@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 
@@ -22,6 +22,7 @@ const softwareSkills = [
 
 const Skills = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const [animatedSkills, setAnimatedSkills] = useState<{[key: string]: boolean}>({});
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,6 +41,20 @@ const Skills = () => {
     elements.forEach((el) => observer.observe(el));
     
     return () => observer.disconnect();
+  }, []);
+
+  // Initialize progress values to 0
+  useEffect(() => {
+    // Set animated skills to true after component mounts to trigger animations
+    const timer = setTimeout(() => {
+      const skills = {};
+      [...programmingSkills, ...softwareSkills].forEach(skill => {
+        skills[skill.name] = true;
+      });
+      setAnimatedSkills(skills);
+    }, 500);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -68,15 +83,8 @@ const Skills = () => {
                     <span className="text-sm text-muted-foreground">{skill.level}%</span>
                   </div>
                   <Progress 
-                    value={0} 
-                    className="h-1.5 transition-all duration-1000" 
-                    ref={(el) => {
-                      if (el) {
-                        setTimeout(() => {
-                          el.style.setProperty('--value', skill.level.toString());
-                        }, 500 + index * 100);
-                      }
-                    }}
+                    value={animatedSkills[skill.name] ? skill.level : 0} 
+                    className="h-2.5 transition-all duration-1000" 
                   />
                 </div>
               ))}
@@ -94,15 +102,8 @@ const Skills = () => {
                     <span className="text-sm text-muted-foreground">{skill.level}%</span>
                   </div>
                   <Progress 
-                    value={0} 
-                    className="h-1.5 transition-all duration-1000" 
-                    ref={(el) => {
-                      if (el) {
-                        setTimeout(() => {
-                          el.style.setProperty('--value', skill.level.toString());
-                        }, 800 + index * 100);
-                      }
-                    }}
+                    value={animatedSkills[skill.name] ? skill.level : 0} 
+                    className="h-2.5 transition-all duration-1000" 
                   />
                 </div>
               ))}

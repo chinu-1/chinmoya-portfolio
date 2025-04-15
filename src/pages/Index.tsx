@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -9,6 +9,9 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 const Index = () => {
+  // State for background particles
+  const [particles, setParticles] = useState<Array<{id: number, size: number, x: number, y: number, duration: number}>>([]);
+  
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll('.reveal-animation');
@@ -32,9 +35,37 @@ const Index = () => {
     };
   }, []);
 
-  // Adding a feature to preload essential assets for better performance on GitHub Pages
+  // Create floating particles for background animation
   useEffect(() => {
-    // This ensures all key assets are loaded for static hosting
+    const createParticles = () => {
+      const newParticles = [];
+      const numParticles = 20; // Number of particles
+      
+      for (let i = 0; i < numParticles; i++) {
+        newParticles.push({
+          id: i,
+          size: Math.random() * 3 + 1, // Random size between 1-4px
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          duration: Math.random() * 15 + 15, // Random duration between 15-30s
+        });
+      }
+      
+      setParticles(newParticles);
+    };
+    
+    createParticles();
+    
+    // Recreate particles on window resize
+    window.addEventListener('resize', createParticles);
+    
+    return () => {
+      window.removeEventListener('resize', createParticles);
+    };
+  }, []);
+
+  // Ensure fonts are loaded
+  useEffect(() => {
     document.fonts.ready.then(() => {
       console.log('Fonts loaded successfully');
     });
@@ -42,6 +73,25 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Background particles */}
+      <div className="particles">
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="particle"
+            style={{
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              borderRadius: '50%',
+              left: `${particle.x}px`,
+              top: `${particle.y}px`,
+              animation: `floatParticle ${particle.duration}s linear infinite`,
+            }}
+          />
+        ))}
+      </div>
+      
       <Navbar />
       <Hero />
       <About />
